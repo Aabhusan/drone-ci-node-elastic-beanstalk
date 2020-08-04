@@ -3,20 +3,14 @@ type: docker
 name: default
 
 pipeline:
-  install_dependencies:
-    image: node
-    commands:
-      - npm install
-
   beanstalk:
     image: pelotech/drone-elastic-beanstalk
     access_key: AKIAUIJGMTYLC7BDR7WR
     secret_key: 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
     region: ap-southeast-2
-    application: 
+    application: drone-ci-tester
     version_label: v1
     description: Deployed with DroneCI
     auto_create: true
-    # secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_ID ]
 
       
