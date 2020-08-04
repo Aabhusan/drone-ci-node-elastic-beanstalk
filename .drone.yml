@@ -11,5 +11,7 @@ pipeline:
     application: drone-ci-tester
     version_label: v1
     description: Deployed with DroneCI
+    bucket_name: drone-test-1
+    bucket_key: AKIAUIJGMTYLC7BDR7WR
 
       
