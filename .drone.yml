@@ -8,14 +8,14 @@ steps:
   commands:
   - npm install
 
-  pipeline:
-    beanstalk:
-      image: pelotech/drone-elastic-beanstalk
-      access_key: ${AWS_ACCESS_KEY_ID}
-      secret_key: ${AWS_SECRET_ACCESS_ID} 
-      region: ap-southeast-2
-      version_label: v1
-      description: Deployed with DroneCI
-      #auto_create: true
-      #bucket_name: my-bucket-name
-      #bucket_key: 970d28f4dd477bc184fbd10b376de753
+  beanstalk:
+    image: pelotech/drone-elastic-beanstalk
+    access_key: ${AWS_ACCESS_KEY_ID}
+    secret_key: ${AWS_SECRET_ACCESS_ID} 
+    region: ap-southeast-2
+    version_label: v1
+    description: Deployed with DroneCI
+    #auto_create: true
+    #bucket_name: my-bucket-name
+    #bucket_key: 970d28f4dd477bc184fbd10b376de753
+      
