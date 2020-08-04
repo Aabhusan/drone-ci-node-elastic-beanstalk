@@ -11,6 +11,5 @@ pipeline:
     application: drone-ci-tester
     version_label: v1
     description: Deployed with DroneCI
-    auto_create: true
 
       
