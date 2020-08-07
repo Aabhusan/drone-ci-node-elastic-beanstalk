@@ -2,16 +2,17 @@ kind: pipeline
 type: docker
 name: default
 
-pipeline:
-  beanstalk:
+steps:
+  - name: deploy to elastic beanstalk  
     image: pelotech/drone-elastic-beanstalk
-    access_key: AKIAUIJGMTYLC7BDR7WR
-    secret_key: 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
+    access_key:
+      from_secret: access_key
+    secret_key:
+      from_secret: secret_key
     region: ap-southeast-2
     application: drone-ci-tester
     version_label: v1
     description: Deployed with DroneCI
-    bucket_name: drone-test-1
-    bucket_key: AKIAUIJGMTYLC7BDR7WR
-
-      
+    bucket: drone-test-1
+    bucket_key:
+      from_secret: access_key
