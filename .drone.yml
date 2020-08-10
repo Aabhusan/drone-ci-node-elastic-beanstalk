@@ -14,14 +14,14 @@ steps:
       - zip -r source.zip /myproject/source
     volumes:
       - name: sourcefile
-        path: /myproject/source.zip
+        path: /myproject/source/
     
   
   - name: source s3 bundle
     image: plugins/s3
     volumes:
       - name: sourcefile
-        path: /myproject/source.zip
+        path: /myproject/source/
     settings:
       bucket: drone-node-test
       region: ap-southeast-2
@@ -29,7 +29,7 @@ steps:
         from_secret: aws_access_key
       secret_key:
         from_secret: aws_secret_key
-      source: /myproject/source.zip
+      source: /myproject/source/source.zip
       target: /
   
   
@@ -45,4 +45,4 @@ steps:
       version_label: v1
       description: Deployed with DroneCI
       bucket: drone-node-test
-      bucket_key: /myproject/source.zip
+      bucket_key: /myproject/source/source.zip
