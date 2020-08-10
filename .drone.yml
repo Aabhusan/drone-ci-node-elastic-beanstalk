@@ -15,5 +15,5 @@ steps:
       version_label: v1
       description: Deployed with DroneCI
       bucket: drone-node-test
-      bucket-key:
-        from_secret: access_key
+      bucket_key:
+        from_secret: aws_access_key
