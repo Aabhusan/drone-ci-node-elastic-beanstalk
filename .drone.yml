@@ -45,4 +45,4 @@ steps:
       version_label: v1
       description: Deployed with DroneCI
       bucket: drone-node-test
-      bucket_key: /myproject/source/source.zip
+      bucket_key: myproject/source/source.zip
