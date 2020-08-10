@@ -48,7 +48,3 @@ steps:
       bucket_key: myproject/source/source.zip
       environment_name: DroneCiTester-env
       environment_update: true
-
-volumes:
-- name: sourcefile
-  temp: {}
