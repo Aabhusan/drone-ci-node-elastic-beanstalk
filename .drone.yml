@@ -5,14 +5,15 @@ name: default
 steps:
   - name: deploy to elastic beanstalk  
     image: pelotech/drone-elastic-beanstalk
-    access_key:
-      from_secret: aws_access_key 
-    secret_key:
-      from_secret: aws_secret_key
-    region: ap-southeast-2
-    application: drone ci tester
-    version_label: v1
-    description: Deployed with DroneCI
-    bucket: drone-node-test
-    bucket_key:
-      from_secret: access_key
+    settings: 
+      access_key:
+        from_secret: aws_access_key 
+      secret_key:
+        from_secret: aws_secret_key
+      region: ap-southeast-2
+      application: drone ci tester
+      version_label: v1
+      description: Deployed with DroneCI
+      bucket: drone-node-test
+      bucket_key:
+        from_secret: access_key
