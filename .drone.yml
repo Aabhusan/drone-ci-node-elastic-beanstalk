@@ -2,7 +2,37 @@ kind: pipeline
 type: docker
 name: default
 
+workspace:
+  path: /myproject/source
+
 steps:
+  - name: zipping the source file
+    image: alpine:latest
+    commands:
+      - apk update
+      - apk add zip
+      - zip -r source.zip /myproject/source
+    volumes:
+      - name: sourcefile
+        path: /myproject/source.zip
+    
+  
+  - name: source s3 bundle
+    image: plugins/s3
+    volumes:
+      - name: sourcefile
+        path: /myproject/source.zip
+    settings:
+      bucket: drone-node-test
+      region: ap-southeast-2
+      access_key:
+        from_secret: aws_access_key
+      secret_key:
+        from_secret: aws_secret_key
+      source: /myproject/source.zip
+      target: /
+  
+  
   - name: deploy to elastic beanstalk  
     image: pelotech/drone-elastic-beanstalk
     settings: 
@@ -15,5 +45,4 @@ steps:
       version_label: v1
       description: Deployed with DroneCI
       bucket: drone-node-test
-      bucket_key:
-        from_secret: aws_access_key
+      bucket_key: /myproject/source.zip
