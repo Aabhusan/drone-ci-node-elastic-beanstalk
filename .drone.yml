@@ -41,8 +41,8 @@ steps:
       secret_key:
         from_secret: aws_secret_key
       region: ap-southeast-2
-      application: drone ci tester
-      version_label: v2
+      application: drone ci test
+      version_label: v1
       description: Deployed with DroneCI
       bucket: drone-node-test
       bucket_key: myproject/source/source.zip
