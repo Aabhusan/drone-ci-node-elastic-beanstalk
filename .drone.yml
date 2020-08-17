@@ -11,7 +11,8 @@ steps:
     commands:
       - apk update
       - apk add zip
-      - zip -r sourcecode.zip /myproject/source
+      - cd /myproject/source
+      - zip -r sourcecode.zip . 
     volumes:
       - name: sourcefile
         path: /myproject/source/
