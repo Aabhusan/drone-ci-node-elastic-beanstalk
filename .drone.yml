@@ -46,5 +46,5 @@ steps:
       description: Deployed with DroneCI
       bucket: drone-node-test
       bucket_key: myproject/source/sourcecode.zip
-      environment_name: DroneCiTest-env-1s
+      environment_name: DroneCiTest-env-1
       environment_update: true
