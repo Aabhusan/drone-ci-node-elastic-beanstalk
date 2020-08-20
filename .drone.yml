@@ -12,7 +12,7 @@ steps:
       - apk update
       - apk add zip
       - cd /myproject/source
-      - zip -r sourcecode-${DRONE_TAG^^}.zip . 
+      - zip -r sourcecode-${DRONE_COMMIT_SHA:0:8}.zip . 
     volumes:
       - name: sourcefile
         path: /myproject/source/
@@ -30,7 +30,7 @@ steps:
         from_secret: aws_access_key
       secret_key:
         from_secret: aws_secret_key
-      source: /myproject/source/sourcecode-${DRONE_TAG^^}.zip
+      source: /myproject/source/sourcecode-${DRONE_COMMIT_SHA:0:8}.zip
       target: /
   
   
@@ -43,9 +43,9 @@ steps:
         from_secret: aws_secret_key
       region: ap-southeast-2
       application: drone ci test
-      version_label: version-${DRONE_TAG^^}
+      version_label: version-${DRONE_COMMIT_SHA:0:8}
       description: Deployed with DroneCI
       bucket: drone-node-test
-      bucket_key: myproject/source/sourcecode-${DRONE_TAG^^}.zip
+      bucket_key: myproject/source/sourcecode-${DRONE_COMMIT_SHA:0:8}.zip
       environment_name: DroneCiTest-env-1
       environment_update: true
